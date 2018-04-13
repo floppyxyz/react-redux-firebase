@@ -112,26 +112,7 @@ export const getWatcherCount = (firebase, event, path, queryId) => {
  * @param {String} path - Path to watch with watcher
  * @param {String} queryId - Id of query
  */
-export const unsetWatcher = (firebase, dispatch, event, path, queryId) => {
-  let id =
-    queryId || getQueryIdFromPath(path, event) || getWatchPath(event, path)
-  path = path.split('#')[0]
-  const { watchers } = firebase._
-  if (watchers[id] <= 1) {
-    delete watchers[id]
-    if (event !== 'first_child' && event !== 'once') {
-      firebase
-        .database()
-        .ref()
-        .child(path)
-        .off(event)
-    }
-  } else if (watchers[id]) {
-    watchers[id]--
-  }
-
-  dispatch({ type: actionTypes.UNSET_LISTENER, path, payload: { id } })
-}
+export const unsetWatcher = (firebase, dispatch, event, path, queryId) => {}
 
 /**
  * @description Modify query to include methods based on query parameters (such

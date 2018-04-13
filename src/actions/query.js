@@ -219,8 +219,7 @@ export const watchEvents = (firebase, dispatch, events) => {
  * @param {Function} dispatch - Action dispatch function
  * @param {Array} events - List of events for which to remove watchers
  */
-export const unWatchEvents = (firebase, dispatch, events) =>
-  events.forEach(event => unWatchEvent(firebase, dispatch, event))
+export const unWatchEvents = (firebase, dispatch, events) => {}
 
 /**
  * @description Add watchers to a list of events
